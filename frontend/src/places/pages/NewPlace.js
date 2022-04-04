@@ -92,7 +92,8 @@ const NewPlace = () => {
           errorText="Please enter a valid description (at least 5 characters)."
           onInput={inputHandler}
         />
-        <Select 
+        <Select
+          name="category"
           options={ placeCategories }
           onChange={inputHandler}
         />
