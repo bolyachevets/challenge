@@ -16,9 +16,9 @@ import { useHttpClient } from '../../shared/hooks/http-hook';
 import { AuthContext } from '../../shared/context/auth-context';
 import './PlaceForm.css';
 
-interface DropDown extends Select {
-  id: string;
-}
+export interface DropDown extends Select {
+  id: String;
+};
 
 const placeCategories = [
   { value: "Dining", label: "dining" },
