@@ -93,7 +93,7 @@ const NewPlace = () => {
           onInput={inputHandler}
         />
         <Select
-          name="category"
+          id="category"
           options={ placeCategories }
           onChange={inputHandler}
         />
