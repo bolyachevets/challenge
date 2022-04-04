@@ -38,7 +38,7 @@ const NewPlace = () => {
       },
       category: {
         value: '',
-        isValid: false
+        isValid: true
       },
       address: {
         value: '',
