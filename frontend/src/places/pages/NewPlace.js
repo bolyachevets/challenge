@@ -16,7 +16,7 @@ import { useHttpClient } from '../../shared/hooks/http-hook';
 import { AuthContext } from '../../shared/context/auth-context';
 import './PlaceForm.css';
 
-export interface DropDown extends Select {
+export class DropDown extends Select {
   id: String;
 };
 
