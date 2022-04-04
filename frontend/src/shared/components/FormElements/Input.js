@@ -73,10 +73,10 @@ const Input = props => {
   const element = props.element === 'textarea' || props.element === 'input' ? temp :
   (
     <select id={props.id} onBlur={touchHandler} onChange={changeHandler} value={inputState.value}>
-      <option value="culture">Culture</option>
-      <option value="dining">Dining</option>
-      <option value="entertainment">Entertainment</option>
-      <option value="nature">Nature</option>
+      <option value="Culture">Culture</option>
+      <option value="Dining">Dining</option>
+      <option value="Entertainment">Entertainment</option>
+      <option value="Nature">Nature</option>
     </select>
   )
 
