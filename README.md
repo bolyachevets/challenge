@@ -27,3 +27,25 @@ You will need to get a Google api token(GOOGLE_API_TOKEN) from https://developer
 - go to the backend folder `cd frontend`
 - install the dependency `npm install`
 - run express api `npm start`
+
+##### Deploy via Heroku CLI
+
+```
+heroku login
+```
+
+Setup ConfigVars:
+
+```
+heroku config:set GOOGLE_TOKEN=<google-api-token>
+heroku config:set MONGODB_URI=<mongo-provider-uri>
+heroku config:set NODE_ENV=production
+```
+
+From the git repo run:
+
+```
+heroku create -a <app-name>
+git push heroku main
+```
+
