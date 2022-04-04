@@ -29,7 +29,7 @@ const NewPlace = () => {
         isValid: false
       },
       category: {
-        value: 'General',
+        value: '',
         isValid: true
       },
       address: {

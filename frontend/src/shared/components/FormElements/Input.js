@@ -70,8 +70,8 @@ const Input = props => {
             value={inputState.value}
           />
       ) : (
-        <select id={props.id} onBlur={touchHandler} onChange={changeHandler} value={inputState.value}>
-          <option value="General">Culture</option>
+        <select id={props.id} onBlur={touchHandler} value={inputState.value}>
+          <option value=""></option>
           <option value="Culture">Culture</option>
           <option value="Dining">Dining</option>
           <option value="Entertainment">Entertainment</option>
