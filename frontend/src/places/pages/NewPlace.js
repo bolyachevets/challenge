@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import Select from 'react-select';
 import Input from '../../shared/components/FormElements/Input';
 import Button from '../../shared/components/FormElements/Button';
 import ErrorModal from '../../shared/components/UIElements/ErrorModal';
@@ -15,6 +16,13 @@ import { useHttpClient } from '../../shared/hooks/http-hook';
 import { AuthContext } from '../../shared/context/auth-context';
 import './PlaceForm.css';
 
+const placeCategories = [
+  { label: "Dining", value: 1 },
+  { label: "Entertainment", value: 2 },
+  { label: "Culture", value: 3 },
+  { label: "Nature", value: 4 }
+];
+
 const NewPlace = () => {
   const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -25,6 +33,10 @@ const NewPlace = () => {
         isValid: false
       },
       description: {
+        value: '',
+        isValid: false
+      },
+      category: {
         value: '',
         isValid: false
       },
@@ -48,6 +60,7 @@ const NewPlace = () => {
       const formData = new FormData();
       formData.append('title', formState.inputs.title.value);
       formData.append('description', formState.inputs.description.value);
+      formData.append('category', formState.inputs.category.value);
       formData.append('address', formState.inputs.address.value);
       formData.append('image', formState.inputs.image.value);
       await sendRequest('/api/places', 'POST', formData, {
@@ -78,6 +91,10 @@ const NewPlace = () => {
           validators={[VALIDATOR_MINLENGTH(5)]}
           errorText="Please enter a valid description (at least 5 characters)."
           onInput={inputHandler}
+        />
+        <Select 
+          options={ placeCategories }
+          onChange={inputHandler}
         />
         <Input
           id="address"
