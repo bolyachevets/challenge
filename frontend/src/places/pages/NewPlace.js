@@ -15,13 +15,6 @@ import { useHttpClient } from '../../shared/hooks/http-hook';
 import { AuthContext } from '../../shared/context/auth-context';
 import './PlaceForm.css';
 
-// const placeCategories = [
-//   { value: "Dining", label: "dining" },
-//   { value: "Entertainment", label: "entertainment" },
-//   { value: "Culture", label: "culture" },
-//   { value: "Nature", label: "nature" }
-// ];
-
 const NewPlace = () => {
   const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -36,8 +29,8 @@ const NewPlace = () => {
         isValid: false
       },
       category: {
-        value: '',
-        isValid: false
+        value: 'General',
+        isValid: true
       },
       address: {
         value: '',
