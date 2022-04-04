@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import Select from 'react-select';
 import Input from '../../shared/components/FormElements/Input';
 import Button from '../../shared/components/FormElements/Button';
 import ErrorModal from '../../shared/components/UIElements/ErrorModal';
@@ -16,16 +15,12 @@ import { useHttpClient } from '../../shared/hooks/http-hook';
 import { AuthContext } from '../../shared/context/auth-context';
 import './PlaceForm.css';
 
-export class DropDown extends Select.Component {
-  id: String;
-};
-
-const placeCategories = [
-  { value: "Dining", label: "dining" },
-  { value: "Entertainment", label: "entertainment" },
-  { value: "Culture", label: "culture" },
-  { value: "Nature", label: "nature" }
-];
+// const placeCategories = [
+//   { value: "Dining", label: "dining" },
+//   { value: "Entertainment", label: "entertainment" },
+//   { value: "Culture", label: "culture" },
+//   { value: "Nature", label: "nature" }
+// ];
 
 const NewPlace = () => {
   const auth = useContext(AuthContext);
@@ -98,8 +93,10 @@ const NewPlace = () => {
         />
         <Input
           id="category"
-          name="text"
-          element="input"
+          element="text"
+          label="Caregory"
+          validators={[VALIDATOR_MINLENGTH(5)]}
+          errorText="Please enter a valid description (at least 5 characters)."
           onInput={inputHandler}
         />
         <Input
