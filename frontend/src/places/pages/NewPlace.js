@@ -16,11 +16,15 @@ import { useHttpClient } from '../../shared/hooks/http-hook';
 import { AuthContext } from '../../shared/context/auth-context';
 import './PlaceForm.css';
 
+interface DropDown extends Select {
+  id: string;
+}
+
 const placeCategories = [
-  { label: "Dining", value: 1 },
-  { label: "Entertainment", value: 2 },
-  { label: "Culture", value: 3 },
-  { label: "Nature", value: 4 }
+  { value: "Dining", label: "dining" },
+  { value: "Entertainment", label: "entertainment" },
+  { value: "Culture", label: "culture" },
+  { value: "Nature", label: "nature" }
 ];
 
 const NewPlace = () => {
@@ -92,9 +96,9 @@ const NewPlace = () => {
           errorText="Please enter a valid description (at least 5 characters)."
           onInput={inputHandler}
         />
-        <Select
+        <DropDown
           id="category"
-          options={ placeCategories }
+          options={placeCategories}
           onChange={inputHandler}
         />
         <Input
