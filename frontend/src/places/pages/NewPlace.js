@@ -41,8 +41,8 @@ const NewPlace = () => {
         isValid: false
       },
       category: {
-        value: 'Culture',
-        isValid: true
+        value: '',
+        isValid: false
       },
       address: {
         value: '',
@@ -96,11 +96,11 @@ const NewPlace = () => {
           errorText="Please enter a valid description (at least 5 characters)."
           onInput={inputHandler}
         />
-        <Select
-          className="category"
-          name="category"
-          options={placeCategories}
-          onChange={inputHandler}
+        <Input
+          id="category"
+          name="text"
+          element="input"
+          onInput={inputHandler}
         />
         <Input
           id="address"
