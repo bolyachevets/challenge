@@ -50,7 +50,7 @@ const Input = props => {
     });
   };
 
-  var temp =
+  const element =
     props.element === 'input' ? (
       <input
         id={props.id}
