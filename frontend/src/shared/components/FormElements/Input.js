@@ -61,24 +61,24 @@ const Input = props => {
         value={inputState.value}
       />
     ) : (
-      <textarea
-        id={props.id}
-        rows={props.rows || 3}
-        onChange={changeHandler}
-        onBlur={touchHandler}
-        value={inputState.value}
-      />
+      props.element === 'textarea' ? (
+          <textarea
+            id={props.id}
+            rows={props.rows || 3}
+            onChange={changeHandler}
+            onBlur={touchHandler}
+            value={inputState.value}
+          />
+      ) : (
+        <select id={props.id} onBlur={touchHandler} onChange={changeHandler} value={inputState.value}>
+          <option value="Culture">Culture</option>
+          <option value="Dining">Dining</option>
+          <option value="Entertainment">Entertainment</option>
+          <option value="Nature">Nature</option>
+        </select>
+      )
     );
 
-  const element = props.element === 'textarea' || props.element === 'input' ? temp :
-  (
-    <select id={props.id} onBlur={touchHandler} onChange={changeHandler} value={inputState.value}>
-      <option value="Culture">Culture</option>
-      <option value="Dining">Dining</option>
-      <option value="Entertainment">Entertainment</option>
-      <option value="Nature">Nature</option>
-    </select>
-  )
 
   return (
     <div
