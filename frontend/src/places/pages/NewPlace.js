@@ -93,10 +93,8 @@ const NewPlace = () => {
         />
         <Input
           id="category"
-          element="text"
+          element="select"
           label="Caregory"
-          validators={[VALIDATOR_MINLENGTH(5)]}
-          errorText="Please enter a valid description (at least 5 characters)."
           onInput={inputHandler}
         />
         <Input
