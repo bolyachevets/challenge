@@ -28,6 +28,10 @@ const NewPlace = () => {
         value: '',
         isValid: false
       },
+      category: {
+        value: '',
+        isValid: false
+      },
       address: {
         value: '',
         isValid: false
@@ -48,6 +52,7 @@ const NewPlace = () => {
       const formData = new FormData();
       formData.append('title', formState.inputs.title.value);
       formData.append('description', formState.inputs.description.value);
+      formData.append('category', formState.inputs.category.value);
       formData.append('address', formState.inputs.address.value);
       formData.append('image', formState.inputs.image.value);
       await sendRequest('/api/places', 'POST', formData, {
@@ -77,6 +82,14 @@ const NewPlace = () => {
           label="Description"
           validators={[VALIDATOR_MINLENGTH(5)]}
           errorText="Please enter a valid description (at least 5 characters)."
+          onInput={inputHandler}
+        />
+        <Input
+          id="category"
+          element="select"
+          label="Caregory"
+          validators={[VALIDATOR_REQUIRE()]}
+          errorText="Please select a category from the menu."
           onInput={inputHandler}
         />
         <Input
