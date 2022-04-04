@@ -70,7 +70,7 @@ const createPlace = async (req, res, next) => {
     );
   }
 
-  const { title, description, address } = req.body;
+  const { title, description, category, address } = req.body;
 
   let coordinates;
   try {
@@ -82,6 +82,7 @@ const createPlace = async (req, res, next) => {
   const createdPlace = new Place({
     title,
     description,
+    category,
     address,
     location: coordinates,
     image: req.file.path,
