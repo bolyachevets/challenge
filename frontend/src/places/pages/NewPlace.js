@@ -30,7 +30,7 @@ const NewPlace = () => {
       },
       category: {
         value: '',
-        isValid: true
+        isValid: false
       },
       address: {
         value: '',
@@ -88,6 +88,8 @@ const NewPlace = () => {
           id="category"
           element="select"
           label="Caregory"
+          validators={[VALIDATOR_REQUIRE()]}
+          errorText="Please select a category from the menu."
           onInput={inputHandler}
         />
         <Input
