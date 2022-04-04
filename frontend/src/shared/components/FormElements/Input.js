@@ -70,7 +70,7 @@ const Input = props => {
       />
     );
 
-  const element = props.element === 'textarea' ? temp :
+  const element = props.element === 'textarea' || props.element === 'input' ? temp :
   (
     <select id={props.id} onBlur={touchHandler} onChange={changeHandler} value={inputState.value}>
       <option value="culture">Culture</option>
