@@ -10,8 +10,6 @@ const AllPlaces = () => {
   const [loadedPlaces, setLoadedPlaces] = useState();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
-  const userId = useParams().userId;
-
   useEffect(() => {
     const fetchPlaces = async () => {
       try {
@@ -22,7 +20,7 @@ const AllPlaces = () => {
       } catch (err) {}
     };
     fetchPlaces();
-  }, [sendRequest, userId]);
+  }, [sendRequest]);
 
   const placeDeletedHandler = deletedPlaceId => {
     setLoadedPlaces(prevPlaces =>
