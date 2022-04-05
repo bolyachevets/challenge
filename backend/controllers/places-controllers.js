@@ -11,7 +11,7 @@ const User = require('../models/user');
 const getPlaces = async (req, res, next) => {
   let places;
   try {
-    places = await Place.find({});
+    places = await Place.find({}, '-location');
   } catch (err) {
     const error = new HttpError(
       'Fetching all places failed, please try again later.',
