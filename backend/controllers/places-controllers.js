@@ -19,7 +19,7 @@ const getPlaces = async (req, res, next) => {
     );
     return next(error);
   }
-  res.json({ places: places.map(places => places.toObject({ getters: true })) });
+  res.json({ places: places.map(place => place.toObject({ getters: true })) });
 };
 
 const getPlaceById = async (req, res, next) => {
