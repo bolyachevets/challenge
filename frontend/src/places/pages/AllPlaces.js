@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 
 import PlaceList from '../components/PlaceList';
 import ErrorModal from '../../shared/components/UIElements/ErrorModal';
@@ -22,11 +21,6 @@ const AllPlaces = () => {
     fetchPlaces();
   }, [sendRequest]);
 
-  const placeDeletedHandler = deletedPlaceId => {
-    setLoadedPlaces(prevPlaces =>
-      prevPlaces.filter(place => place.id !== deletedPlaceId)
-    );
-  };
 
   return (
     <React.Fragment>
@@ -36,9 +30,7 @@ const AllPlaces = () => {
           <LoadingSpinner />
         </div>
       )}
-      {!isLoading && loadedPlaces && (
-        <PlaceList items={loadedPlaces} onDeletePlace={placeDeletedHandler} />
-      )}
+      {!isLoading && loadedPlaces && <PlaceList items={loadedPlaces} />}
     </React.Fragment>
   );
 };
